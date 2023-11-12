@@ -50,3 +50,7 @@ jupyter notebook
 ## Conclusion
 
 By accurately predicting energy consumption by the hour, this project aims to provide valuable insights for energy management and planning. The developed model can be used to optimize energy usage, reduce costs, and improve overall efficiency.
+
+### Notebooks
+
+* [FinalNotebook](https://github.com/Danayt09/Phase_4_project/blob/main/Modeling_ver03.ipynb)
