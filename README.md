@@ -1,22 +1,23 @@
 # Energy Prediction by the Hour
 
-This project aims to predict energy consumption by the hour using machine learning techniques. The goal is to develop a model that can accurately forecast energy usage, which can be valuable for various applications such as energy management, demand planning, and cost optimization.
+This project aims to predict energy consumption by the hour using machine learning techniques. Matching supply to demand is of utmost importance in the energy sector, it ensures the stability and reliability of power grid. The goal is to develop a model that can accurately forecast energy usage, which can be valuable for various applications such as energy management, demand planning, and cost optimization. 
 
 ## Dataset
 
-The project utilizes a dataset containing historical energy consumption data by the hour. The dataset includes features such as date, time, weather conditions, and other relevant variables that may impact energy usage. The dataset is preprocessed and cleaned to handle missing values, outliers, and other data quality issues.
+The project utilizes a dataset containing historical energy consumption by the hour. The dataset includes features such as date, time, weather conditions, and other relevant variables that were engineered from the time stamp and calendar such as holidays, working days and lag variables as time series prediction are influenced by previes times with certain weigh assigned to each historical lag. The dataset is preprocessed and cleaned to handle missing values, outliers, and other data quality issues. Weather data was retrieved from [NOVA](https://www.ncei.noaa.gov) and consumption data was retrieved from [CAISO](http://www.caiso.com/planning/Pages/ReliabilityRequirements/Default.aspx), the website has data from 2019, and that was the starting point of this timeseries project ending at the end of 2022 with posibly using 2023 data as a fresh testing set.
+
 
 ## Project Structure
 
 The project is structured as follows:
 
-1. Data Exploration: Perform exploratory data analysis to gain insights into the dataset, understand the distribution of variables, and identify any patterns or trends.
+1. Data Cleaning and EDA: Load data and Perform exploratory data analysis to gain insights into the dataset, understand the distribution of variables, and identify any patterns or trends.
 
 2. Feature Engineering: Create new features or transform existing ones to enhance the predictive power of the model. This may involve techniques such as lagging variables, creating interaction terms, or encoding categorical variables.
 
-3. Model Development: Train and evaluate various machine learning models to predict energy consumption. This may include regression models such as linear regression, decision tree-based models like random forest or gradient boosting, or more advanced techniques like neural networks.
+3. Model Development: Train and evaluate various machine learning models to predict energy consumption. This includs regression models such as Random forest, elastic net, decision tree-based models such as XGBoost. Timeseries models such as SARIMAX and FB Prophet were also used in this project along with advanced techniques like LTSM neural networks.
 
-4. Model Evaluation: Assess the performance of the trained models using appropriate evaluation metrics such as mean squared error (MSE), root mean squared error (RMSE), or mean absolute error (MAE). Compare the performance of different models to select the best-performing one.
+4. Model Evaluation: To evaluate the performance of our models, we have employed several evaluation metrics. These metrics include Mean Absolute Error (MAE), Mean Squared Error (MSE), Root Mean Squared Error (RMSE), Mean Absolute Percentage Error (MAPE), and R-squared (R^2). These metrics provide us with a comprehensive understanding of the accuracy and precision of our predictions, enabling us to compare and select the best-performing mode
 
 5. Model Deployment: Once a satisfactory model is selected, deploy it in a production environment to make real-time predictions. This may involve creating an API or integrating the model into an existing system.
 
@@ -45,12 +46,14 @@ pip install -r requirements.txt
 
 3. Run the Jupyter notebook or Python scripts in the specified order:
 
-jupyter notebook
+* [CleaningNotebook]()
+* [PreprocessingNotebook]()
+* [ModelingNotebook]()
 
 ## Conclusion
 
 By accurately predicting energy consumption by the hour, this project aims to provide valuable insights for energy management and planning. The developed model can be used to optimize energy usage, reduce costs, and improve overall efficiency.
 
-### Notebooks
 
-* [FinalNotebook](https://github.com/Danayt09/Phase_4_project/blob/main/Modeling_ver03.ipynb)
+
+### Notebooks
