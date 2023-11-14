@@ -66,7 +66,7 @@ pip install -r requirements.txt
 * [ModelingNotebook]()
 
 
-# LinkdIn
+# LinkedIn
 Danayt Aman <a href = "https://github.com/Danayt09"><img src='https://cdn.pixabay.com/photo/2022/01/30/13/33/github-6980894_1280.png' width = '25' height='25'></a><a href="https://www.linkedin.com/in/danayt-aman/"><img src='https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg' width = '25' height='25'></a>  
 
 
