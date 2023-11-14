@@ -1,5 +1,4 @@
 # Energy Prediction by the Hour
-https://www.google.com/url?sa=i&url=https%3A%2F%2Fbrainboxai.com%2Fen%2Farticles%2Felectricity-101-here-s-what-you-need-to-know-about-electricity&psig=AOvVaw321VEEX53L1bt69NM5FD1T&ust=1700012757389000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCJjO6JWvwoIDFQAAAAAdAAAAABAE![image](https://github.com/Danayt09/Phase_5_Energy/assets/141673235/af9d97c4-3b69-4db2-91aa-37ae01951f84)
 
 # Project Overview
 This project aims to predict energy consumption by the hour using machine learning techniques. Matching supply to demand is of utmost importance in the energy sector, it ensures the stability and reliability of power grid. The goal is to develop a model that can accurately forecast energy usage, which can be valuable for various applications such as energy management, demand planning, and cost optimization. 
