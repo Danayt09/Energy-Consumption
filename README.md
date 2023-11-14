@@ -13,15 +13,13 @@ The project utilizes a dataset containing historical energy consumption by the h
 
 The project is structured as follows:
 
-1. Data Cleaning and EDA: Load data and Perform exploratory data analysis to gain insights into the dataset, understand the distribution of variables, and identify any patterns or trends.
+1. EDA: Load data and Perform exploratory data analysis to gain insights into the dataset, understand the distribution of variables, and identify any patterns or trends.
 
-2. Feature Engineering: Create new features or transform existing ones to enhance the predictive power of the model. This may involve techniques such as lagging variables, creating interaction terms, or encoding categorical variables.
+2. Preprocessing: Create new features or transform existing ones to enhance the predictive power of the model. This may involve techniques such as lagging variables, creating interaction terms, or encoding categorical variables.
 
 3. Model Development: Train and evaluate various machine learning models to predict energy consumption. This includs regression models such as Random forest, elastic net, decision tree-based models such as XGBoost. Timeseries models such as SARIMAX and FB Prophet were also used in this project along with advanced techniques like LTSM neural networks.
 
-4. Model Evaluation: To evaluate the performance of our models, we have employed several evaluation metrics. These metrics include Mean Absolute Error (MAE), Mean Squared Error (MSE), Root Mean Squared Error (RMSE), Mean Absolute Percentage Error (MAPE), and R-squared (R^2). These metrics provide us with a comprehensive understanding of the accuracy and precision of our predictions, enabling us to compare and select the best-performing mode
-
-5. Model Deployment: Once a satisfactory model is selected, deploy it in a production environment to make real-time predictions. This may involve creating an API or integrating the model into an existing system.
+4. Model Deployment: Once a satisfactory model is selected, deploy it in a production environment to make real-time predictions. This may involve creating an API or integrating the model into an existing system.
 
 ## Conclusion
 
