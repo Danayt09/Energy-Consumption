@@ -53,11 +53,11 @@ To run the project, follow these steps:
 
 1. Clone the repository:
 
-git clone git@github.com:Danayt09/Phase_5_Energy.git
+git clone (git@github.com:Danayt09/Phase_5_Energy.git)
 
 2. Install the required dependencies:
 
-pip install -r requirements.txt
+pip install -r [requirements.txt](https://github.com/Danayt09/Phase_5_Energy/blob/main/requirement.txt)
 
 3. Run the Jupyter notebook or Python scripts in the specified order:
 
