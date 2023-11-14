@@ -22,12 +22,18 @@ The project is structured as follows:
 
 5. Model Deployment: Once a satisfactory model is selected, deploy it in a production environment to make real-time predictions. This may involve creating an API or integrating the model into an existing system.
 
+## Conclusion
 
-# Recommendations
+By accurately predicting energy consumption by the hour, this project aims to provide valuable insights for energy management and planning. The developed model can be used to optimize energy usage, reduce costs, and improve overall efficiency. Using time series forcasting this project was able to predict hourly energy consumption at 7.97% MAPE, which is on average 168.27 MWH off the actual consumption, which has a minimum consumption of 5768.62 MWH and max 22379.07 MWH. These results were obtained by using a 24h lag variables for each hour with XGBoosting model. Other models such as elasticnet and randomforest also performed well with a 24h lags included. Our data had high seasonality and timeseries models such SARIMAX, even after decomposition and taking out noices were not able to pick on the trend as well as the linear models with lags.
+
 
 # Limitations
+This project did not account for solar energy and the time used being during covid where lockdown had an effect on energy consumption and might not be an appropriate representation of the county's usual data as yearly trend decreses from 2019 to 2022 and picks up from there. The data set used also doen't include all forcasting requirements such as solar, EV ownership or economic condition. 
 
 # Next Steps
+* Include solar, EV, and economic condition for long term forcasting.
+* Account for residential and industrial presence 
+* Deploy Model
 
 ## Dependencies
 
@@ -57,10 +63,6 @@ pip install -r requirements.txt
 * [CleaningNotebook]()
 * [PreprocessingNotebook]()
 * [ModelingNotebook]()
-
-## Conclusion
-
-By accurately predicting energy consumption by the hour, this project aims to provide valuable insights for energy management and planning. The developed model can be used to optimize energy usage, reduce costs, and improve overall efficiency.
 
 
 # LinkdIn
