@@ -30,7 +30,7 @@ All models error percentage were on average different by about 1.6% between the 
 Models were evaluated against a persistent forecasting baseline model which repeats the previous hour values and is sometimes hard to beat, which performed at 14%. All models performed better than the baseline except the LSTM model which took much longer time to run and not worth the computational time. 
 
 
-Conclusion
+# Conclusion
 
 Based on this analysis we can see how XGBoost does very well on capturing the seasonality and trends components of our time series data. Sarimax took a lot of time to train as well as LSTM, and i wouldn't recommend for hourly prediction. Sarimax did perform better for short term prediction, like a week into the future but XGBoost and other regressor models utilized in this project performed better and at a much less computation time.
 ![image_info](Images/yearly_observed_xgboost.png)
