@@ -15,16 +15,42 @@ The project is structured as follows:
 
 1. EDA: Load data and Perform exploratory data analysis to gain insights into the dataset, understand the distribution of variables, and identify any patterns or trends.
 
-2. Preprocessing: Create new features or transform existing ones to enhance the predictive power of the model. This may involve techniques such as lagging variables, creating interaction terms, or encoding categorical variables.
+2. Preprocessing:
+Cleaning: We start with data cleaning which involves Handling missing using the previous hour or interlope method which finds the average from surrounding hours. And resampling our weather data by the hour to merge with the energy consumption data.
 
-3. Model Development: Train and evaluate various machine learning models to predict energy consumption. This includs regression models such as Random forest, elastic net, decision tree-based models such as XGBoost. Timeseries models such as SARIMAX and FB Prophet were also used in this project along with advanced techniques like LTSM neural networks.
+Testing for Stationary : Time Series modeling is a bit different than regression modeling, because it has a moving average, meaning even though the yearly average smoothes out there’s a constant movement within the year, month, day and hourly intervals and this can be done using something called the adfuller test, with a p value lower than 0.05 insinuating that our data is stationary. 
 
-4. Model Deployment: Once a satisfactory model is selected, deploy it in a production environment to make real-time predictions. This may involve creating an API or integrating the model into an existing system.
+Feature engineering: Since holidays are not accounted for we imported calendar and included a holiday as categorical indicator, to use certain time modeling algorithms such as SARIMAX and LSTM, I also added a fourier transformation, which is a mathematical model that helps pick on certain signals such as seasonal or hourly peaks. And since time series forecasting depends on previous events, I included lag variables for regression models, which is the delay or gap between an event and its effect, in this case we used a 24hours gap between hours and to predict the next hour. 
 
-## Conclusion
+Next steps include splitting data into train and test set, we trained our data from the first of 2019 until march of 2022, 6pm and tested on the most recent data which was 20% of the whole data. I then encoded categorical features and scaled the numeric features so our data is handled with appropriate weight.
 
-By accurately predicting energy consumption by the hour, this project aims to provide valuable insights for energy management and planning. The developed model can be used to optimize energy usage, reduce costs, and improve overall efficiency. Using time series forcasting this project was able to predict hourly energy consumption at 7.97% MAPE, which is on average 168.27 MWH off the actual consumption, which has a minimum consumption of 5768.62 MWH and max 22379.07 MWH. These results were obtained by using a 24h lag variables for each hour with XGBoosting model. Other models such as elasticnet and randomforest also performed well with a 24h lags included. Our data had high seasonality and timeseries models such SARIMAX, even after decomposition and taking out noices were not able to pick on the trend as well as the linear models with lags.
+4. Model Development: Train and evaluate various machine learning models to predict energy consumption. This includs regression models such as Random forest, elastic net, decision tree-based models such as XGBoost. Timeseries models such as SARIMAX and FB Prophet were also used in this project along with advanced techniques like LTSM neural networks.
+   
+All models error percentage were on average different by about 1.6% between the test and train and not significantly large to indicate overfitting or underfitting, of course this was a result of the tuning process with each model to find the optimal setting to get constant score between both test and train sets. This was especially important with the tree based algorithm, RandomForest and XGBoost as they are known to be greedy algorithms which are prone to overfitting, having great results on the training set and performing poorly on unseen data. Each model above was tested with and without weather variable, all performed better with weather included
 
+Models were evaluated against a persistent forecasting baseline model which repeats the previous hour values and is sometimes hard to beat, which performed at 14%. All models performed better than the baseline except the LSTM model which took much longer time to run and not worth the computational time. 
+
+
+Conclusion
+
+Based on this analysis we can see how XGBoost does very well on capturing the seasonality and trends components of our time series data. Sarimax took a lot of time to train as well as LSTM, and i wouldn't recommend for hourly prediction. Sarimax did perform better for short term prediction, like a week into the future but XGBoost and other regressor models utilized in this project performed better and at a much less computation time.
+![image_info](Images/yearly_observed_xgboost.png)
+For XGBoost the recommended hyperparameters are:
+
+learning rate :0.1
+Objective :reg:linear
+max_depth :7
+n-estimators :100
+colsample bytree :0.7
+Model Evaluation:
+
+Mean Absolute Error: 147.44
+Mean Squared Error: 42567.02
+Root Mean Squared Error: 206.32
+Mean Absolute Percentage Error: 6.71%
+Variance Score: 0.78
+
+That means our model is on average off the actual value by about 6.71%, which is around 147.44 MWH and compared to the average hourly consumption rate, this is not a bad outcome. Especially when we compare it to our baseline model which had a 14.07% error percontage and was on average off the actual value by 317.36 MWH.
 
 # Limitations
 This project did not account for solar energy and the time used being during covid where lockdown had an effect on energy consumption and might not be an appropriate representation of the county's usual data as yearly trend decreses from 2019 to 2022 and picks up from there. The data set used also doen't include all forcasting requirements such as solar, EV ownership or economic condition. 
@@ -32,7 +58,7 @@ This project did not account for solar energy and the time used being during cov
 # Next Steps
 * Include solar, EV, and economic condition for long term forcasting.
 * Account for residential and industrial presence 
-* Deploy Model
+* Deploy Model for real time predictions
 
 ## Dependencies
 
@@ -59,9 +85,8 @@ pip install -r [requirements.txt](https://github.com/Danayt09/Phase_5_Energy/blo
 
 3. Run the Jupyter notebook or Python scripts in the specified order:
 
-* [CleaningNotebook]()
-* [PreprocessingNotebook]()
-* [ModelingNotebook]()
+* [CleaningNotebook](https://github.com/Danayt09/Phase_5_Energy/tree/main/Cleaning_Notebooks)
+* [ModelingNotebook](https://github.com/Danayt09/Phase_5_Energy/blob/main/Modeling_Notebook.ipynb)
 
 
 # LinkedIn
