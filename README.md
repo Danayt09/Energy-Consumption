@@ -1,6 +1,6 @@
 # Energy Prediction by the Hour
 Danayt Aman. November 17,2023
-![image_info](header_articles_(11)-2.png)
+![image_info](Image/header_articles_(11)-2.png)
 # Project Overview
 This project aims to predict energy consumption by the hour using machine learning techniques. Matching supply to demand is of utmost importance in the energy sector, it ensures the stability and reliability of power grid. The goal is to develop a model that can accurately forecast energy usage, which can be valuable for various applications such as energy management, demand planning, and cost optimization. 
 
@@ -13,9 +13,7 @@ The project utilizes a dataset containing historical energy consumption by the h
 
 The project is structured as follows:
 
-1. EDA: Load data and Perform exploratory data analysis to gain insights into the dataset, understand the distribution of variables, and identify any patterns or trends.
-
-2. Preprocessing:
+### Preprocessing:
 Cleaning: We start with data cleaning which involves Handling missing using the previous hour or interlope method which finds the average from surrounding hours. And resampling our weather data by the hour to merge with the energy consumption data.
 
 Testing for Stationary : Time Series modeling is a bit different than regression modeling, because it has a moving average, meaning even though the yearly average smoothes out there’s a constant movement within the year, month, day and hourly intervals and this can be done using something called the adfuller test, with a p value lower than 0.05 insinuating that our data is stationary. 
@@ -24,7 +22,8 @@ Feature engineering: Since holidays are not accounted for we imported calendar a
 
 Next steps include splitting data into train and test set, we trained our data from the first of 2019 until march of 2022, 6pm and tested on the most recent data which was 20% of the whole data. I then encoded categorical features and scaled the numeric features so our data is handled with appropriate weight.
 
-4. Model Development: Train and evaluate various machine learning models to predict energy consumption. This includs regression models such as Random forest, elastic net, decision tree-based models such as XGBoost. Timeseries models such as SARIMAX and FB Prophet were also used in this project along with advanced techniques like LTSM neural networks.
+### Model Development
+Train and evaluate various machine learning models to predict energy consumption. This includs regression models such as Random forest, elastic net, decision tree-based models such as XGBoost. Timeseries models such as SARIMAX and FB Prophet were also used in this project along with advanced techniques like LTSM neural networks.
    
 All models error percentage were on average different by about 1.6% between the test and train and not significantly large to indicate overfitting or underfitting, of course this was a result of the tuning process with each model to find the optimal setting to get constant score between both test and train sets. This was especially important with the tree based algorithm, RandomForest and XGBoost as they are known to be greedy algorithms which are prone to overfitting, having great results on the training set and performing poorly on unseen data. Each model above was tested with and without weather variable, all performed better with weather included
 
