@@ -16,9 +16,16 @@ The project is structured as follows:
 ### Preprocessing:
 Cleaning: We start with data cleaning which involves Handling missing using the previous hour or interlope method which finds the average from surrounding hours. And resampling our weather data by the hour to merge with the energy consumption data.
 
+From [CleaningNotebook](https://github.com/Danayt09/Phase_5_Energy/tree/main/Cleaning_Notebooks) i observed that there's two seasonality in the data, summer being the highest consumprion. This was also captured with our model as shown under conclusion section of this read me. 
+![energy_temperature](Images/energy_temperature.png)
+
 Testing for Stationary : Time Series modeling is a bit different than regression modeling, because it has a moving average, meaning even though the yearly average smoothes out there’s a constant movement within the year, month, day and hourly intervals and this can be done using something called the adfuller test, with a p value lower than 0.05 insinuating that our data is stationary. 
 
 Feature engineering: Since holidays are not accounted for we imported calendar and included a holiday as categorical indicator, to use certain time modeling algorithms such as SARIMAX and LSTM, I also added a fourier transformation, which is a mathematical model that helps pick on certain signals such as seasonal or hourly peaks. And since time series forecasting depends on previous events, I included lag variables for regression models, which is the delay or gap between an event and its effect, in this case we used a 24hours gap between hours and to predict the next hour. 
+
+The best model XGBoost performed best with the lag variables which was created this formula below:
+![lags](Images/lags.png)
+
 
 Next steps include splitting data into train and test set, we trained our data from the first of 2019 until march of 2022, 6pm and tested on the most recent data which was 20% of the whole data. I then encoded categorical features and scaled the numeric features so our data is handled with appropriate weight.
 
