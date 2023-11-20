@@ -2,7 +2,7 @@
 Danayt Aman. November 17,2023
 ![image_info](Images/header_articles_(11)-2.png)
 # Project Overview
-This project aims to predict energy consumption by the hour using machine learning techniques. Matching supply to demand is of utmost importance in the energy sector, it ensures the stability and reliability of power grid. The goal is to develop a model that can accurately forecast energy usage, which can be valuable for various applications such as energy management, demand planning, and cost optimization. 
+This project aims to predict energy consumption by the hour using machine learning techniques. Matching supply to demand is of utmost importance in the energy sector, it ensures the stability and reliability of power grid. The goal is to develop a model that can accurately forecast energy usage, to effectively manage supply and demand dynamics in the electricity market. This prediction is crucial as energy cannot be stored, and prices are determined on an hourly basis. The predictive model takes into account historical consumption patterns and weather factors to forecast energy consumption accurately. The aim is to optimize trading decisions and mitigate potential transmission problems that may arise from an excess or shortage of electricity at any given time.
 
 ## Data Understanding 
 
